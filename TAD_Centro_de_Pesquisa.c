@@ -126,7 +126,7 @@ void recarrega_pokebolas(Treinador *pnt) // A função recebe um ponteiro para u
     pnt->quant_pokebolas += x; // Atualiza a quantidade de pokebolas.
 }
 
-void imprime_relatorio(Centro_de_Pesquisa *Centro)
+void imprime_relatorio(Centro_de_Pesquisa *Centro)// A função recebe um ponteiro para um Centro de Pesquisa e imprime um relatório contendo o número da Pokédex e o nome dos Pokémons recuperados.
 {
     FILE *file;
     file = fopen("relatorio.txt", "w");
