@@ -13,13 +13,12 @@ typedef struct
 
 } Treinador;
 
-// Treinador T[2];
 
 void inicializa_treinador(Treinador *pnt);
 
 void insere_Tdados(Treinador *pnt, int quant, char *nom, int id);
 
-void movimenta(Treinador *pnt, coordenadas *local);
+void movimenta(Treinador *pnt, int a, int b);
 
 void captura_pokemon(Treinador *pnt, Apontador p);
 

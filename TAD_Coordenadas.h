@@ -9,7 +9,10 @@ typedef struct
 
 #endif
 
+
 void inicializa_coordenadas(coordenadas *local);
+
+void movimenta_local(coordenadas* local, int X, int Y);
 
 float distancia(coordenadas *local1, coordenadas *local2);
 

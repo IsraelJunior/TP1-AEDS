@@ -4,31 +4,30 @@
 
 void inicializa_lista(Lista *pLista)
 {
-    pLista->primeiro = (Apontador)malloc(sizeof(Poke_celula));
-    pLista->ultimo = pLista->primeiro;
-    pLista->primeiro->proximo = NULL;
+    pLista->primeiro = (Apontador)malloc(sizeof(Poke_celula)); // Aloca dinamicamente um espaço na memória para armazenar a célula cabeça. Atribuindo o endereço dessa célula ao ponteiro "primeiro".
+    pLista->ultimo = pLista->primeiro;                         // Como a lista não possui elementos, então os ponteiros "primeiro" e "ultimo" apontam para o mesmo lugar, a célula cabeça.
+    pLista->primeiro->proximo = NULL;                          // O endereço de memória do elemento que vem após a célula cabeça é NULL.
 }
 
 int LEhVazia(Lista *pLista)
 {
-    if (pLista->primeiro == pLista->ultimo)
+    if (pLista->primeiro == pLista->ultimo) // Se a lista é vazia, os ponteiros "primeiro" e "ultimo" apontam para o mesmo lugar, para a célula cabeça. E a função retorna 1 como confirmação.
     {
         return 1;
     }
 
-    else
+    else // Caso a lista tenha elementos, então os ponteiros "primeiro" e "ultimo" apontam para lugares diferentes. O "primeiro" aponta para a célula cabeça e o "ultimo" aponta para a ultima célula na lista. Assim, a função retorna 0 como negação.
     {
         return 0;
     }
 }
 
-void LInsere(Lista *pLista, Pokemon *p)
+void LInsere(Lista *pLista, Pokemon *p) // A função recebe um ponteiro para uma lista e um ponteiro para um Pokemon.
 {
-    pLista->ultimo->proximo = (Apontador)malloc(sizeof(Poke_celula));
-
-    pLista->ultimo = pLista->ultimo->proximo;
-    pLista->ultimo->info = *p;
-    pLista->ultimo->proximo = NULL;
+    pLista->ultimo->proximo = (Apontador)malloc(sizeof(Poke_celula)); // Aloca dinamicamente um espaço na memória para armazenar a nova célula da lista e, coloca essa nova célula após o último elemento da lista.
+    pLista->ultimo = pLista->ultimo->proximo;                         // Atualiza o ponteiro "ultimo", uma vez que a nova última célula vem após a antiga última célula.
+    pLista->ultimo->info = *p;                                        // O campo info da nova célula, que armazena as informações do Pokemon, recebe o conteúdo do Pokemon recebido como parâmetro.
+    pLista->ultimo->proximo = NULL;                                   // A nova última célula aponta para NULL.
 }
 
 int LRetira(Lista *pLista, Pokemon *p)
@@ -37,10 +36,10 @@ int LRetira(Lista *pLista, Pokemon *p)
     if (LEhVazia(pLista))
         return 0;
 
-    *p = pLista->primeiro->proximo->info;
-    aux = pLista->primeiro;
-    pLista->primeiro = pLista->primeiro->proximo;
-    free(aux);
+    *p = pLista->primeiro->proximo->info;         // Salva as informações do Pokemon em uma variável externa do tipo Pokemon.
+    aux = pLista->primeiro;                       // aux aponta para a célula cabeça.
+    pLista->primeiro = pLista->primeiro->proximo; // A nova célula cabeça é a célula que vem depois da antiga célula cabeça.
+    free(aux);                                    // Libera a antiga célula cabeça.
     return 1;
 }
 
@@ -48,57 +47,57 @@ void LImprime(Lista *pLista)
 {
     Apontador aux;
 
-    aux = pLista->primeiro->proximo;
+    aux = pLista->primeiro->proximo; // aux aponta para o primeiro elemento da lista, que vem após a célula cabeça.
 
-    while (aux != NULL)
+    while (aux != NULL) // Enquanto não chegou no fim da lista.
     {
         printf("ID: %d\n", aux->info.ID);
         printf("Número na Pokédex: %d\n", aux->info.num_pokedex);
         printf("Nome: %s\n", aux->info.nome);
         printf("Tipo: %s\n", aux->info.tipo);
         printf("Localização: %d %d\n", aux->info.lugar.x, aux->info.lugar.y);
-        aux = aux->proximo;
+        aux = aux->proximo; //"Anda" na lista.
     }
 }
 
 int busca(Lista *pLista, int id)
 {
-    if (LEhVazia(pLista))
+    if (LEhVazia(pLista)) // Se a lista é vazia, não há elementos para buscar.
     {
-        return 0;
+        return 0; // Retorna zero pois o Pokemon com o ID recebido não está na lista.
     }
 
     Apontador aux;
-    aux = pLista->primeiro->proximo;
-    while (aux != NULL)
+    aux = pLista->primeiro->proximo; // aux aponta para o primeiro elemento da lista, que vem após a célula cabeça.
+    while (aux != NULL)              // Enquanto não chegou no fim da lista.
     {
-        if (aux->info.ID == id)
-        {   
+        if (aux->info.ID == id) // Se encontra o ID.
+        {
             printf("O elemento está na lista.\n");
-            return 1;
+            return 1; // ID encontrado,
         }
-        aux = aux->proximo;
+        aux = aux->proximo; //"Anda" na lista caso o ID não seja encontrado.
     }
     printf("O elemento não está na lista.\n");
-    return 0;
+    return 0; // Retorna zero pois o Pokemon com o ID recebido não está na lista.
 }
 
 int tamanho_lista(Lista *pLista)
 {
- if (LEhVazia(pLista))
+    if (LEhVazia(pLista)) // Se a lista está vazia, ela tem zero elementos.
     {
-        return 0;
+        return 0; // Retorna a quantidae de elementos na lista, que é zero.
     }
 
     int tam = 0;
     Apontador aux;
-    aux = pLista->primeiro->proximo;
+    aux = pLista->primeiro->proximo; // aux aponta para o primeiro elemento da lista, que vem após a célula cabeça.
 
-    while (aux != NULL)
+    while (aux != NULL) // Enquanto não chegou no fim da lista.
     {
-        tam += 1;
-        aux = aux->proximo;
+        tam += 1;           // Incrementa o valor do tamanho.
+        aux = aux->proximo; //"Anda" na lista.
     }
 
     return tam;
-}   
+}
