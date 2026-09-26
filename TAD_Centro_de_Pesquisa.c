@@ -29,12 +29,8 @@ Centro_de_Pesquisa *inicializa_centro(Treinador *t1, Treinador *t2) // A funçã
             fscanf(arquivo, "%49s %d", palavra, &quantidade); // Lê as informações presentes no arquivo acerca do primeiro treinador.
             insere_Tdados(t1, quantidade, palavra, 1);        // Repassa os dados para o treinador.
 
-            printf("%s %d\n", palavra, quantidade);
-
             fscanf(arquivo, "%49s %d", palavra, &quantidade); // Lê as informações presentes no arquivo acerca do segundo treinador.
             insere_Tdados(t2, quantidade, palavra, 2);        // Repassa os dados para o treinador.
-
-            printf("%s %d\n", palavra, quantidade);
 
             fclose(arquivo);
 
@@ -88,8 +84,7 @@ void insere_fugitivos(Centro_de_Pesquisa *Centro) // A função recebe um pontei
                 insere_Pdados(&novo_pokemon, numero_pokedex, nome_p, tipo_p, ident, x, y); // Repassa os dados lidos para a struct Pokemon.
                 LInsere(&Centro->fugitivos, &novo_pokemon);                                // Insere o Pokemon na lista de fugitivos.
                 cont -= 1;                                                                 // Decrementa a quantidade de Pokemons a serem lidos.
-                ident += 1;
-                printf("Fugitivo cadastrado.\n"); // Incrementa o ID a ser atribuído ao pŕoximo Pokemon que pode lido.
+                ident += 1;                                                                // Incrementa o ID a ser atribuído ao pŕoximo Pokemon que pode lido.
             }
         }
 

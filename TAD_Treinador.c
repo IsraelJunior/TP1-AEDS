@@ -29,14 +29,13 @@ void movimenta(Treinador *pnt, int a, int b) // Movimenta o treinador para um de
 
 void captura_pokemon(Treinador *pnt, Apontador p) // A função recebe um ponteiro para um treinador e uma struct Pokemon.
 {
-    movimenta_local(&(pnt->lugar), p->info.lugar.x, p->info.lugar.y);
+    movimenta_local(&(pnt->lugar), p->info.lugar.x, p->info.lugar.y); // O treinador se movimenta para onde o pokemon está.
     printf("Treinador(a) %s se movimentou para (%d, %d).\n", pnt->nome, pnt->lugar.x, pnt->lugar.y);
 
     LInsere(&(pnt->Tlista), &(p->info)); // Insere o pokemon na Pokelista do treinador.
     pnt->quant_pokebolas -= 1;           // Na captura, uma pokebola do treinador é consumida.
     printf("%s capturado com sucesso !\n\n", p->info.nome);
     printf("Pokébolas restantes para o Treinador(a) %s : %d\n\n", pnt->nome, pnt->quant_pokebolas);
-    
 }
 
 void retira_pokelista(Treinador *pnt, Pokemon *p) // A função recebe um ponteiro para um treinador e um ponteiro do tipo Pokemon, a fim de salvar as informações do Pokemon retirado da Pokelista do treinador.
