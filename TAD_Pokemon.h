@@ -26,14 +26,6 @@ int get_num_pokedex(Pokemon *pnt);
 
 void set_num_pokedex(Pokemon *pnt, int num);
 
-void get_nome(Pokemon *pnt, char *nome);
-
-void set_nome(Pokemon *pnt, char *nome);
-
-void get_tipo(Pokemon *pnt, char *nome);
-
-void set_tipo(Pokemon *pnt, char *nome);
-
 void get_coordernadas(Pokemon *pnt, int *X, int *Y);
 
 void set_coordernadas(Pokemon *pnt, int X, int Y);

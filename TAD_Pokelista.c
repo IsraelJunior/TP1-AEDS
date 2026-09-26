@@ -51,11 +51,11 @@ void LImprime(Lista *pLista)
 
     while (aux != NULL) // Enquanto não chegou no fim da lista.
     {
-        printf("ID: %d\n", aux->info.ID);
+        printf("\nID: %d\n", aux->info.ID);
         printf("Número na Pokédex: %d\n", aux->info.num_pokedex);
         printf("Nome: %s\n", aux->info.nome);
         printf("Tipo: %s\n", aux->info.tipo);
-        printf("Localização: %d %d\n", aux->info.lugar.x, aux->info.lugar.y);
+        printf("Localização: %d %d\n\n", aux->info.lugar.x, aux->info.lugar.y);
         aux = aux->proximo; //"Anda" na lista.
     }
 }

@@ -13,9 +13,9 @@ void movimenta_local(coordenadas *local, int X, int Y) // A função recebe um p
     local->y = Y;
 }
 
-float distancia(coordenadas *local1, coordenadas *local2) // A função recebe dois ponteiros para duas structs coordenadas, a fim de calcular a distância estre esses pontos.
+double distancia(coordenadas *local1, coordenadas *local2) // A função recebe dois ponteiros para duas structs coordenadas, a fim de calcular a distância estre esses pontos.
 {
-    float d = sqrt(pow((local1->x - local2->x), 2) + pow((local1->y - local2->y), 2)); // Fórmula da distância euclidiana na linguagem C.
+    double d = sqrt(pow((local1->x - local2->x), 2) + pow((local1->y - local2->y), 2)); // Fórmula da distância euclidiana na linguagem C.
     return d;
 }
 

@@ -59,7 +59,7 @@ void insere_fugitivos(Centro_de_Pesquisa *Centro) // A função recebe um pontei
 {
 
     FILE *arquivo;
-    arquivo = fopen("teste.txt", "r");
+    arquivo = fopen("teste1.txt", "r");
 
     if (arquivo != NULL) // Se o arquivo foi aberto corretamente.
     {
@@ -88,7 +88,8 @@ void insere_fugitivos(Centro_de_Pesquisa *Centro) // A função recebe um pontei
                 insere_Pdados(&novo_pokemon, numero_pokedex, nome_p, tipo_p, ident, x, y); // Repassa os dados lidos para a struct Pokemon.
                 LInsere(&Centro->fugitivos, &novo_pokemon);                                // Insere o Pokemon na lista de fugitivos.
                 cont -= 1;                                                                 // Decrementa a quantidade de Pokemons a serem lidos.
-                ident += 1;                                                                // Incrementa o ID a ser atribuído ao pŕoximo Pokemon que pode lido.
+                ident += 1;
+                printf("Fugitivo cadastrado.\n"); // Incrementa o ID a ser atribuído ao pŕoximo Pokemon que pode lido.
             }
         }
 
@@ -128,4 +129,29 @@ void recarrega_pokebolas(Treinador *pnt) // A função recebe um ponteiro para u
 {
     int x = (rand() % 20) + 1; // Gera um número pseudoaleatório entre 1 e 20.
     pnt->quant_pokebolas += x; // Atualiza a quantidade de pokebolas.
+}
+
+void imprime_relatorio(Centro_de_Pesquisa *Centro)
+{
+    FILE *file;
+    file = fopen("relatorio.txt", "w");
+
+    if (file != NULL) // Verifica se o arquivo foi criado(caso não exista) e acessado corretamente.
+    {
+
+        Apontador aux;
+        aux = Centro->recuperados.primeiro->proximo;
+        fprintf(file, "Pokemons recuperados:\n"); // Escreve o relatório no arquivo.
+
+        while (aux != NULL)
+        {
+            fprintf(file, "%d %s\n", aux->info.num_pokedex, aux->info.nome);
+            aux = aux->proximo;
+        }
+    }
+    else
+    {
+
+        printf("ERRO na escrita do relatório.\n");
+    }
 }

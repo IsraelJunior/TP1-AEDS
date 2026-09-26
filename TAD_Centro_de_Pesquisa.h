@@ -25,14 +25,8 @@ void imprime_fugitivos(Centro_de_Pesquisa *Centro);
 
 void recebe_recuperados(Centro_de_Pesquisa *Centro, Treinador *pnt);
 
-void recarrega_pokebolas(Treinador *pnt); // Quantidade aleatória entre 1 a 20;
+void recarrega_pokebolas(Treinador *pnt);
+
+void imprime_relatorio(Centro_de_Pesquisa *Centro);
 
 #endif
-
-// Inicialização do centro de pesquisa;
-// Inserção dos registros de Pokémon fugitivos;
-// Remoção de um pokémon da lista de fugitivos;
-// Impressão dos pokémon que ainda não foram recuperados;
-// Recebimento dos Pokémon recuperados pelos treinadores;
-// Recarga de Pokébolas de um treinad (que deverá atribuir ao treinador uma
-// quantidade aleatória de Pokébos, no intervalo de 1 a 20);

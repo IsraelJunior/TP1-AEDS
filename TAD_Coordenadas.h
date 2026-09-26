@@ -14,6 +14,6 @@ void inicializa_coordenadas(coordenadas *local);
 
 void movimenta_local(coordenadas* local, int X, int Y);
 
-float distancia(coordenadas *local1, coordenadas *local2);
+double distancia(coordenadas *local1, coordenadas *local2);
 
 void imprime_coordenadas(coordenadas *local);

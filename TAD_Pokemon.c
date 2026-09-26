@@ -50,26 +50,6 @@ void set_num_pokedex(Pokemon *pnt, int num)//Atribui um valor ao número da Pok�
     pnt->num_pokedex = num;
 }
 
-void get_nome(Pokemon *pnt, char *nome)//Salva o nome do Pokemon em uma variável do tipo char externa, por meio de um ponteiro para ela.
-{
-    strcpy(nome, pnt->nome);
-}
-
-void set_nome(Pokemon *pnt, char *nome)//Usa um ponteiro para uma variável externa do tipo char para atribuir o nome armazenado nela ao nome do Pokemon.
-{
-    strcpy(pnt->nome, nome);
-}
-
-void get_tipo(Pokemon *pnt, char *nome)//Salva o tipo do Pokemon em uma variável do tipo char externa, por meio de um ponteiro para ela.
-{
-    strcpy(nome, pnt->tipo);
-}
-
-void set_tipo(Pokemon *pnt, char *nome)//Usa um ponteiro para uma variável externa do tipo char para atribuir o tipo armazenado nela ao tipo do Pokemon.
-{
-    strcpy(pnt->tipo, nome);
-}
-
 void get_coordernadas(Pokemon *pnt, int *X, int *Y)//Usa um ponteiro para Pokemon e dois ponteiros para inteiro, a fim de salvar as coordenadas do Pokemon no conteúdos desses ponteiros.
 {
     *X = pnt->lugar.x;
