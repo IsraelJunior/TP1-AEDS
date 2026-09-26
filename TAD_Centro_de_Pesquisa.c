@@ -134,17 +134,17 @@ void imprime_relatorio(Centro_de_Pesquisa *Centro)
     if (file != NULL) // Verifica se o arquivo foi criado(caso não exista) e acessado corretamente.
     {
 
-        Apontador aux;
-        aux = Centro->recuperados.primeiro->proximo;
-        fprintf(file, "Pokemons recuperados:\n"); // Escreve o relatório no arquivo.
+        Apontador aux;                               // Cria um ponteiro para uma célula Pokémon.
+        aux = Centro->recuperados.primeiro->proximo; // aux aponta para a primeira célula da lista dos recuperados.
+        fprintf(file, "Pokemons recuperados:\n");    // Escreve o relatório no arquivo.
 
-        while (aux != NULL)
+        while (aux != NULL) // Roda enquanto não chegou ao final da lista.
         {
             fprintf(file, "%d %s\n", aux->info.num_pokedex, aux->info.nome);
-            aux = aux->proximo;
+            aux = aux->proximo; //"Anda" na lista.
         }
     }
-    else
+    else // Se o arquivo não foi acessado corretamente.
     {
 
         printf("ERRO na escrita do relatório.\n");
