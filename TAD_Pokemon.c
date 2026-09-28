@@ -3,7 +3,7 @@
 #include "TAD_Pokemon.h"
 #include <string.h>
 
-void insere_Pdados(Pokemon *pnt, int num, char *nom, char *tip, int id, int x, int y)//Nessa função, referenciamos o ponteiro recebido e atribuimos os parâmetros recebidos as suas variáveis.
+void insere_Pdados(Pokemon *pnt, int num, char *nom, char *tip, int id, int x, int y)//Nessa função, referenciamos o ponteiro recebido e atribuimos os parâmetros as suas variáveis.
 {
     pnt->ID = id;
     pnt->num_pokedex = num;

@@ -22,7 +22,7 @@ int LEhVazia(Lista *pLista)// A função recebe um ponteiro para uma lista.
     }
 }
 
-void LInsere(Lista *pLista, Pokemon *p) // A função recebe um ponteiro para uma lista e um ponteiro para um Pokemon.
+void LInsere(Lista *pLista, Pokemon *p) 
 {
     pLista->ultimo->proximo = (Apontador)malloc(sizeof(Poke_celula)); // Aloca dinamicamente um espaço na memória para armazenar a nova célula da lista e, coloca essa nova célula após o último elemento da lista.
     pLista->ultimo = pLista->ultimo->proximo;                         // Atualiza o ponteiro "ultimo", uma vez que a nova última célula vem após a antiga última célula.
