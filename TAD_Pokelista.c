@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include "TAD_Pokelista.h"
 
-void inicializa_lista(Lista *pLista)// A função recebe um ponteiro para uma lista.
+void inicializa_lista(Lista *pLista) // A função recebe um ponteiro para uma lista.
 {
     pLista->primeiro = (Apontador)malloc(sizeof(Poke_celula)); // Aloca dinamicamente um espaço na memória para armazenar a célula cabeça. Atribuindo o endereço dessa célula ao ponteiro "primeiro".
     pLista->ultimo = pLista->primeiro;                         // Como a lista não possui elementos, então os ponteiros "primeiro" e "ultimo" apontam para o mesmo lugar, a célula cabeça.
     pLista->primeiro->proximo = NULL;                          // O endereço de memória do elemento que vem após a célula cabeça é NULL.
 }
 
-int LEhVazia(Lista *pLista)// A função recebe um ponteiro para uma lista.
+int LEhVazia(Lista *pLista) // A função recebe um ponteiro para uma lista.
 {
     if (pLista->primeiro == pLista->ultimo) // Se a lista é vazia, os ponteiros "primeiro" e "ultimo" apontam para o mesmo lugar, para a célula cabeça. E a função retorna 1 como confirmação.
     {
@@ -22,7 +22,7 @@ int LEhVazia(Lista *pLista)// A função recebe um ponteiro para uma lista.
     }
 }
 
-void LInsere(Lista *pLista, Pokemon *p) 
+void LInsere(Lista *pLista, Pokemon *p) // A função recebe um ponteiro para uma lista e um ponteiro para um Pokemon.
 {
     pLista->ultimo->proximo = (Apontador)malloc(sizeof(Poke_celula)); // Aloca dinamicamente um espaço na memória para armazenar a nova célula da lista e, coloca essa nova célula após o último elemento da lista.
     pLista->ultimo = pLista->ultimo->proximo;                         // Atualiza o ponteiro "ultimo", uma vez que a nova última célula vem após a antiga última célula.
@@ -30,7 +30,7 @@ void LInsere(Lista *pLista, Pokemon *p)
     pLista->ultimo->proximo = NULL;                                   // A nova última célula aponta para NULL.
 }
 
-int LRetira(Lista *pLista, Pokemon *p)// A função recebe um ponteiro para uma lista e um ponteiro para um Pokemon.
+int LRetira(Lista *pLista, Pokemon *p) // A função recebe um ponteiro para uma lista e um ponteiro para um Pokemon.
 {
     Apontador aux; // Cria um ponteiro para uma célula Pokémon.
     if (LEhVazia(pLista))
@@ -45,7 +45,7 @@ int LRetira(Lista *pLista, Pokemon *p)// A função recebe um ponteiro para uma 
     return 1;
 }
 
-void LImprime(Lista *pLista)// A função recebe um ponteiro para uma lista.
+void LImprime(Lista *pLista) // A função recebe um ponteiro para uma lista.
 {
     Apontador aux; // Cria um ponteiro para uma célula Pokémon.
 
@@ -62,7 +62,7 @@ void LImprime(Lista *pLista)// A função recebe um ponteiro para uma lista.
     }
 }
 
-int busca(Lista *pLista, int id)// A função recebe um ponteiro para uma lista e um valor de ID a ser buscado.
+int busca(Lista *pLista, int id) // A função recebe um ponteiro para uma lista e um valor de ID a ser buscado.
 {
     if (LEhVazia(pLista)) // Se a lista é vazia, não há elementos para buscar.
     {
@@ -84,7 +84,7 @@ int busca(Lista *pLista, int id)// A função recebe um ponteiro para uma lista 
     return 0; // Retorna zero pois o Pokemon com o ID recebido não está na lista.
 }
 
-int tamanho_lista(Lista *pLista)// A função recebe um ponteiro para uma lista.
+int tamanho_lista(Lista *pLista) // A função recebe um ponteiro para uma lista.
 {
     if (LEhVazia(pLista)) // Se a lista está vazia, ela tem zero elementos.
     {
